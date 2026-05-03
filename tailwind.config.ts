@@ -8,9 +8,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        display: ["var(--font-display)", "serif"],
+        body: ["var(--font-body)", "monospace"],
+        hand: ["var(--font-hand)", "cursive"],
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        sand: "#F2E8D5",
+        ocean: "#1A5F7A",
+        wave: "#57B4D1",
+        sunrise: "#E8752A",
+        kelp: "#2D4A22",
+        foam: "#FAFAF5",
+        roast: "#3B1F0A",
+        chalk: "#FFFFFF",
+        dotLight: "#F2D972",
+        dotMedium: "#E8752A",
+        dotDark: "#5C3824",
       },
     },
   },
