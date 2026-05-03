@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Abril_Fatface, Caveat, DM_Mono } from "next/font/google";
+import { Bangers, Montserrat, Caveat } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/layout/CartDrawer";
 
-const abrilFatface = Abril_Fatface({
+const bangers = Bangers({
+  weight: ["400"],
   subsets: ["latin"],
-  weight: "400",
   variable: "--font-display",
   display: "swap",
 });
 
-const dmMono = DM_Mono({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-body",
   display: "swap",
 });
@@ -56,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${abrilFatface.variable} ${dmMono.variable} ${caveat.variable}`}
+      className={`${bangers.variable} ${montserrat.variable} ${caveat.variable}`}
     >
       <body className="min-h-screen bg-sand font-body text-roast antialiased">
         <Navbar />

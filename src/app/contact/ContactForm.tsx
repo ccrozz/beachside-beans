@@ -62,7 +62,7 @@ export function ContactForm() {
       </div>
       <button
         type="submit"
-        className="w-full rounded-lg bg-sunrise py-3 font-body uppercase tracking-wider text-chalk hover:opacity-95"
+        className="w-full rounded-full bg-sunrise py-3 font-body text-sm uppercase tracking-wider text-chalk transition-colors hover:bg-sunrise/90 active:scale-[0.99]"
       >
         Send it →
       </button>

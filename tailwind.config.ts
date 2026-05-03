@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["var(--font-display)", "serif"],
-        body: ["var(--font-body)", "monospace"],
+        display: ["var(--font-display)", "cursive"],
+        body: ["var(--font-body)", "system-ui", "sans-serif"],
         hand: ["var(--font-hand)", "cursive"],
       },
       colors: {

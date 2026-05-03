@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ocean);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background-color: var(--wave);
+  color: var(--chalk);
+}
+
 :root {
   --sand: #f2e8d5;
   --ocean: #1a5f7a;
@@ -15,6 +30,32 @@
 
 body {
   @apply bg-sand text-roast font-body antialiased;
+}
+
+/* Logo-style primary wordmark: white fill + thick black outline (hero / dark banner titles) */
+.text-brand-wordmark {
+  color: var(--chalk);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #000000;
+  paint-order: stroke fill;
+}
+
+@media (min-width: 640px) {
+  .text-brand-wordmark {
+    -webkit-text-stroke-width: 3px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-brand-wordmark {
+    -webkit-text-stroke-width: 4px;
+  }
+}
+
+/* Secondary line like logo: spaced caps, geometric sans — use with font-body */
+.text-brand-tagline {
+  @apply uppercase font-medium;
+  letter-spacing: 0.32em;
 }
 
 @keyframes wave-shift-1 {

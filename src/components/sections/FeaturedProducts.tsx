@@ -9,16 +9,21 @@ export function FeaturedProducts() {
   const beans = sortedCoffeeProducts();
 
   return (
-    <section className="relative bg-sand py-16 sm:py-20">
+    <section className="relative bg-sand py-20 sm:py-24">
       <div className="grain">
-        <div className="mx-auto max-w-6xl px-4 pb-12 sm:px-6 lg:px-8">
-          <FadeUp>
-            <h2 className="text-center font-hand text-[40px] text-roast sm:text-5xl">
-              fresh off the roaster 🫘
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <FadeUp className="mb-12 text-center">
+            <p className="font-hand text-xl text-ocean/60">fresh off the roaster</p>
+            <h2 className="mt-1 font-display text-4xl text-roast sm:text-5xl">
+              Small-Batch Coffee
             </h2>
+            <p className="mt-3 font-body text-[11px] uppercase tracking-widest text-roast/40">
+              13 roasts · ethically sourced · shipped to your door
+            </p>
           </FadeUp>
 
-          <div className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-6 lg:hidden">
+          {/* Mobile: horizontal scroll */}
+          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-6 lg:hidden">
             {beans.map((p) => (
               <div
                 key={p.id}
@@ -29,17 +34,21 @@ export function FeaturedProducts() {
             ))}
           </div>
 
-          <div className="mt-12 hidden gap-6 lg:grid lg:grid-cols-4">
+          {/* Desktop: grid */}
+          <div className="hidden gap-6 lg:grid lg:grid-cols-4">
             {beans.map((p) => (
               <CoffeeProductCard key={p.id} product={p} />
             ))}
           </div>
 
-          <p className="mt-14 text-center font-hand text-xl text-ocean">
-            <Link href="/shop" className="underline underline-offset-4">
-              → shop all 13 roasts
+          <FadeUp className="mt-14 flex justify-center">
+            <Link
+              href="/shop"
+              className="rounded-full bg-ocean px-10 py-3.5 font-body text-sm uppercase tracking-wider text-chalk transition-colors hover:bg-wave hover:text-roast"
+            >
+              Shop All 13 Roasts →
             </Link>
-          </p>
+          </FadeUp>
         </div>
       </div>
     </section>

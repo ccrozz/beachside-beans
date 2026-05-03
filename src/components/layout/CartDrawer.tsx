@@ -86,7 +86,7 @@ export function CartDrawer() {
                   <Link
                     href="/shop"
                     onClick={() => closeCart()}
-                    className="mt-2 rounded-lg bg-ocean px-6 py-3 font-body uppercase tracking-wider text-chalk"
+                    className="mt-2 rounded-full bg-ocean px-8 py-3 font-body text-sm uppercase tracking-wider text-chalk transition-colors hover:bg-wave hover:text-roast"
                   >
                     Shop Coffee
                   </Link>
@@ -175,14 +175,14 @@ export function CartDrawer() {
                 <button
                   type="button"
                   onClick={checkout}
-                  className="mb-2 w-full rounded-lg bg-sunrise py-3 font-body uppercase tracking-wider text-chalk"
+                  className="mb-2 w-full rounded-full bg-sunrise py-3 font-body text-sm uppercase tracking-wider text-chalk transition-colors hover:bg-sunrise/90 active:scale-[0.99]"
                 >
                   Checkout →
                 </button>
                 <button
                   type="button"
                   onClick={() => toggleCart()}
-                  className="w-full py-2 font-body text-sm text-roast/70 underline-offset-4 hover:underline"
+                  className="w-full py-2 font-body text-sm text-roast/70 underline-offset-4 transition-colors hover:text-ocean hover:underline"
                 >
                   Continue Shopping
                 </button>

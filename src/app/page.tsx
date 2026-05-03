@@ -12,9 +12,30 @@ export const metadata: Metadata = {
     "Craft coffee roasted fresh daily by Dan in Satellite Beach, Florida. For surfers, skaters, and Space Coast locals. Shop online, shipped to your door.",
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Beachside Beans Coffee Roastery",
+  description:
+    "Craft coffee roasted fresh daily by Dan in Satellite Beach, Florida. Small-batch, ethically sourced, Space Coast proud.",
+  email: "beachsidebeans@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Satellite Beach",
+    addressRegion: "FL",
+    addressCountry: "US",
+  },
+  foundingDate: "2024",
+  sameAs: ["https://www.instagram.com/beachsidebeans/"],
+};
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Hero />
       <FeaturedProducts />
       <BrandStatement />

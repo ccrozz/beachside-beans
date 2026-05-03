@@ -49,8 +49,8 @@ export function CoffeeProductCard({
   return (
     <article
       className={cn(
-        "relative flex flex-col rounded-2xl border p-4 shadow-sm",
-        dark ? "border-chalk/20 bg-ocean/40" : "border-roast/10 bg-foam",
+        "relative flex flex-col rounded-2xl border p-4 shadow-sm transition-shadow duration-200",
+        dark ? "border-chalk/20 bg-ocean/40 hover:shadow-ocean/20" : "border-roast/10 bg-foam hover:shadow-md",
         soldOut && "opacity-80 grayscale",
       )}
     >
@@ -60,7 +60,10 @@ export function CoffeeProductCard({
         </div>
       )}
 
-      <div className="perspective-[1000px]" style={{ perspective: "1000px" }}>
+      <div className="perspective-[1000px] relative" style={{ perspective: "1000px" }}>
+        <span className="pointer-events-none absolute bottom-1 right-1 z-10 rounded-full bg-roast/60 px-2 py-0.5 font-body text-[9px] uppercase tracking-wide text-chalk/80">
+          flip ↻
+        </span>
         <motion.div
           className="relative h-[220px] cursor-pointer"
           style={{ transformStyle: "preserve-3d" }}
@@ -167,7 +170,7 @@ export function CoffeeProductCard({
               type="button"
               disabled
               className={cn(
-                "w-full cursor-not-allowed rounded-lg bg-roast/20 py-3 font-body text-xs uppercase tracking-wider text-roast/60",
+                "w-full cursor-not-allowed rounded-full bg-roast/20 py-3 font-body text-xs uppercase tracking-wider text-roast/60",
               )}
             >
               Sold Out 🤙
@@ -176,7 +179,7 @@ export function CoffeeProductCard({
             <Link
               href={`/shop/${product.slug}`}
               className={cn(
-                "block w-full rounded-lg bg-ocean py-3 text-center font-body text-xs uppercase tracking-wider text-chalk hover:bg-wave hover:text-roast",
+                "block w-full rounded-full bg-ocean py-3 text-center font-body text-xs uppercase tracking-wider text-chalk transition-colors hover:bg-wave hover:text-roast",
               )}
             >
               Select Options
@@ -189,7 +192,7 @@ export function CoffeeProductCard({
                 addSimple();
               }}
               className={cn(
-                "w-full rounded-lg bg-ocean py-3 font-body text-xs uppercase tracking-wider text-chalk hover:bg-wave hover:text-roast",
+                "w-full rounded-full bg-ocean py-3 font-body text-xs uppercase tracking-wider text-chalk transition-colors hover:bg-wave hover:text-roast",
               )}
             >
               + Add to Cart
@@ -274,7 +277,7 @@ export function MerchProductCard({
         type="button"
         disabled={soldOut}
         className={cn(
-          "mt-4 w-full rounded-lg py-3 font-body text-xs uppercase tracking-wider",
+          "mt-4 w-full rounded-full py-3 font-body text-xs uppercase tracking-wider transition-colors",
           soldOut
             ? "cursor-not-allowed bg-roast/20 text-roast/50"
             : "bg-ocean text-chalk hover:bg-wave hover:text-roast",

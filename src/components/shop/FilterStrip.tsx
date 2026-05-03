@@ -19,7 +19,7 @@ interface FilterStripProps {
 
 export function FilterStrip({ active, onChange }: FilterStripProps) {
   return (
-    <div className="sticky top-16 z-40 flex flex-wrap gap-2 border-b border-roast/10 bg-sand py-4">
+    <div className="sticky top-16 z-40 flex flex-wrap gap-2 border-b border-roast/10 bg-foam py-4">
       {FILTERS.map(({ id, label }) => (
         <button
           key={id}

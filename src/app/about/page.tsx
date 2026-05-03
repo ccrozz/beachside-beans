@@ -1,7 +1,10 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { danAndJessPhoto } from "@/lib/data/galleryPhotos";
+import { danAndJessPhoto, galleryPhotos } from "@/lib/data/galleryPhotos";
 import { FadeUp } from "@/components/ui/FadeUp";
+import { PageHero } from "@/components/layout/PageHero";
+
+const aboutHeroImg = galleryPhotos[0];
 
 export const metadata: Metadata = {
   title: "About Dan & Jess | Beachside Beans",
@@ -12,22 +15,13 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-sand pt-16">
-      <section className="relative h-[55vh] min-h-[320px] w-full sm:h-[65vh]">
-        <Image
-          src={danAndJessPhoto}
-          alt="Dan and Jess of Beachside Beans"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-roast/80 via-roast/30 to-transparent" />
-        <div className="absolute inset-0 flex items-end justify-center pb-12 text-center sm:items-center sm:pb-0">
-          <h1 className="font-display text-5xl uppercase tracking-tight text-chalk sm:text-7xl md:text-[80px]">
-            Meet Dan &amp; Jess
-          </h1>
-        </div>
-      </section>
+      <PageHero
+        label="the people behind the pour"
+        title="Dan & Jess"
+        tagline="Satellite Beach, FL · Est. 2024"
+        image={aboutHeroImg}
+        imageAlt="Beachside Beans roastery lifestyle"
+      />
 
       <section className="grain">
         <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:items-start lg:gap-16 lg:px-8">
@@ -65,24 +59,29 @@ export default function AboutPage() {
                 home, each sip is a taste of the beachside. We hope you feel
                 our sunny warmth and salty drive in every cup.
               </span>
+              <span className="block">
+                Thank you for being a part of our coffee story and embracing the evolving adventure of Beachside Beans together!
+              </span>
             </p>
           </FadeUp>
         </div>
       </section>
 
-      <section className="bg-ocean py-16 text-chalk">
-        <div className="mx-auto grid max-w-5xl gap-10 px-4 text-center font-body sm:grid-cols-3 sm:px-6 lg:px-8">
-          <div>
-            <p className="font-display text-4xl">200,000 lbs</p>
-            <p className="mt-2 text-sm text-chalk/80">Career Roasted</p>
-          </div>
-          <div>
-            <p className="font-display text-4xl">3,000+ lbs</p>
-            <p className="mt-2 text-sm text-chalk/80">Space Coast</p>
-          </div>
-          <div>
-            <p className="font-display text-4xl">Est. 2024</p>
-            <p className="mt-2 text-sm text-chalk/80">Satellite Beach FL</p>
+      <section className="bg-ocean py-20 text-chalk grain">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 text-center sm:grid-cols-3">
+            <div className="rounded-2xl border border-chalk/10 bg-chalk/5 px-6 py-8 backdrop-blur-sm">
+              <p className="font-display text-5xl text-wave">200,000 lbs</p>
+              <p className="mt-3 font-body text-sm uppercase tracking-wider text-chalk/70">Career Roasted</p>
+            </div>
+            <div className="rounded-2xl border border-chalk/10 bg-chalk/5 px-6 py-8 backdrop-blur-sm">
+              <p className="font-display text-5xl text-wave">3,000+ lbs</p>
+              <p className="mt-3 font-body text-sm uppercase tracking-wider text-chalk/70">Space Coast</p>
+            </div>
+            <div className="rounded-2xl border border-chalk/10 bg-chalk/5 px-6 py-8 backdrop-blur-sm">
+              <p className="font-display text-5xl text-wave">Est. 2024</p>
+              <p className="mt-3 font-body text-sm uppercase tracking-wider text-chalk/70">Satellite Beach FL</p>
+            </div>
           </div>
         </div>
       </section>

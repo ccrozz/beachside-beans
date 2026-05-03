@@ -65,12 +65,28 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
   const showSizes = product.sizes.length > 1;
 
   return (
-    <div className="mx-auto grid max-w-6xl gap-12 px-4 pb-20 pt-12 sm:px-6 lg:grid-cols-2 lg:px-8 lg:pt-16">
+    <>
+    {/* Mobile sticky bottom bar — always-visible CTA on small screens */}
+    <div className="fixed bottom-0 left-0 right-0 z-50 flex items-center gap-3 border-t border-roast/10 bg-sand/95 px-4 pb-6 pt-3 backdrop-blur-sm lg:hidden">
+      <span className="shrink-0 font-body text-xl font-bold text-sunrise">
+        ${product.price.toFixed(2)}
+      </span>
+      <button
+        type="button"
+        disabled={soldOut}
+        onClick={soldOut ? undefined : addBag}
+        className="flex-1 rounded-full bg-ocean py-3.5 font-body text-sm uppercase tracking-widest text-chalk transition-colors hover:bg-wave hover:text-roast disabled:cursor-not-allowed disabled:bg-roast/20 disabled:text-roast/50"
+      >
+        {soldOut ? "Sold Out" : "+ Add to Beach Bag"}
+      </button>
+    </div>
+
+    <div className="mx-auto grid max-w-6xl gap-12 px-4 pb-32 pt-12 sm:px-6 lg:grid-cols-2 lg:pb-20 lg:px-8 lg:pt-16">
       <div className="space-y-6">
         <button
           type="button"
           onClick={() => setShowFront((f) => !f)}
-          className="relative aspect-square w-full cursor-zoom-in overflow-hidden rounded-2xl bg-sand shadow-inner ring-2 ring-roast/10 transition hover:ring-ocean"
+          className="relative aspect-[4/3] w-full cursor-zoom-in overflow-hidden rounded-2xl bg-sand shadow-inner ring-2 ring-roast/10 transition hover:ring-ocean sm:aspect-square"
         >
           <Image
             src={heroSrc}
@@ -123,9 +139,16 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
       </div>
 
       <div className="font-body">
+        <Link
+          href="/shop"
+          className="mb-6 inline-flex items-center gap-1 text-sm text-ocean/70 transition-colors hover:text-ocean"
+        >
+          ← Back to Shop
+        </Link>
+
         <div className="flex flex-wrap items-center gap-2">{badges}</div>
 
-        <h1 className="mt-6 font-display text-[40px] leading-tight text-roast lg:text-[44px]">
+        <h1 className="mt-4 font-display text-[40px] leading-tight text-roast lg:text-[44px]">
           {product.name}
         </h1>
 
@@ -180,19 +203,13 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             type="button"
             disabled={soldOut}
             onClick={soldOut ? undefined : addBag}
-            className="mt-8 w-full rounded-xl bg-ocean py-5 font-body text-sm uppercase tracking-widest text-chalk transition hover:bg-wave hover:text-roast disabled:cursor-not-allowed disabled:bg-roast/20 disabled:text-roast/50"
+            className="mt-8 w-full rounded-full bg-ocean py-5 font-body text-sm uppercase tracking-widest text-chalk transition-colors hover:bg-wave hover:text-roast disabled:cursor-not-allowed disabled:bg-roast/20 disabled:text-roast/50"
           >
             {soldOut ? "Sold Out" : "+ Add to Beach Bag"}
           </button>
-
-          <Link
-            href="/shop"
-            className="mt-4 inline-block text-sm text-ocean underline-offset-4 hover:underline"
-          >
-            ← Back to Shop
-          </Link>
         </div>
       </div>
     </div>
+    </>
   );
 }
